@@ -46,12 +46,12 @@ return altura;
 
 */
 
-float conversionCF(char vt, float grados) {
+float conversionCF(int vt, float grados) {
 
 
-if(vt == 'c') {
+if(vt == 1) {
     return ((grados-32)*5)/9;
-} else if(vt == 'f') {
+} else if(vt == 2) {
     return ((grados*9)/5+32);
 }
 return 0;
@@ -124,7 +124,7 @@ cout << "Con um monto total de RD$" << suma << ", para un porcentaje total de " 
 
 void conversionCmtom_MtoKm(int opcion, float valor) {
 
-    float val=0;
+    double val=0;
 
     switch (opcion) {
 
@@ -171,13 +171,13 @@ void conversionCmtom_MtoKm(int opcion, float valor) {
 
 void calcularTiempoLlamada(int minutos) {
 
-    const min = 150;
+    const int minu = 150;
     const int min_3 = 300;
     int total;
 
     if(minutos > 3) {
 
-            total = min_3 + (min*(minutos-3));
+            total = min_3 + (minu*(minutos-3));
 
     }  else {
 
@@ -209,7 +209,11 @@ cin>>opcion;
 
     if (opcion >= 1 && opcion <= 6) {
         return opcion;
-    } else {
+    } else if(opcion == 0) {
+
+        exit(0);
+
+     } else {
         system("cls");
     }
 
@@ -227,16 +231,57 @@ void copyright() {
             "Materia Logica de programacion\n\n";
 }
 
+void allop(int code) {
+
+    switch (code) {
+
+    case 1:
+        system("cls");
+        system("color 80");
+        copyright();
+        break;
+    case 2:
+        system("cls");
+        system("color 6");
+        copyright();
+        break;
+    case 3:
+        system("cls");
+        system("color 2b");
+        copyright();
+        break;
+    case 4:
+        system("cls");
+        system("color 1f");
+        copyright();
+        break;
+    case 5:
+        system("cls");
+        system("color f0");
+        copyright();
+        break;
+    case 6:
+        system("cls");
+        system("color a0");
+        copyright();
+        break;
+
+    }
+
+}
 
 int main () {
 
+
+system("cls");
+copyright();
 float volumen,radio, conversion;
 int op = 0, grados, p1, p2, p3;
 char conv;
 
 
 
-while (op != 0) {
+while (op == 0) {
 
 op = option(1);
 
@@ -248,50 +293,45 @@ op = option(1);
 
             case 1:
 
-                system("cls");
-                system("color 80");
-                copyright();
+                allop(1);
                 cout << "\n\nIntroduzca el volumen : "; cin >> volumen;
                 cout << "\nIntroduzca el radio : "; cin >> radio;
                 cout << "\n\nLa altura del cono es de " << alturaCono(volumen,radio) << " centimetros cubicos \n\n";
-                op = 0;
+                system("pause");
+                main();
                 break;
 
             case 2:
 
-                system("cls");
-                system("color 6");
-                copyright();
-                cout << "\n\nC- Convertir de Fahrenheit a Celcius\n\n";
+                allop(2);
+                cout << "\nC- Convertir de Fahrenheit a Celcius\n\n";
                 cout << "F- Convertir de Celcius a Fahrenheit\n\n";
                 cout << "Introduzca el valor ";
-                cin >> conv;
+                cin >> p1;
                 cout << "\n\nIntroduzca los grados ";
                 cin >> grados;
-                conversion = conversionCF(conv,grados);
-                cout << "\n\n" << grados <<  (conv == 'c' ? " grados Celcius son " : " grados Fahrenheit son ")  << conversion << " grados " << (conv == 'c' ?  "Fahrenheit" : "Celcius " ) << "\n";
-
+                conversion = conversionCF(p1,grados);
+                cout << "\n\t" << grados <<  (p1 == 1 ? " grados Fahrenheit son " : " grados Celcius son ")  << conversion << " grados " << (p1 == 1 ?  "Celcius" : "Fahrenheit" ) << "\n\n";
+                system("pause");
+                main();
                 break;
 
             case 3:
 
-                system("cls");
-                system("color 2b");
-                copyright();
+                allop(3);
                 cout << "\nIntroduzca la fecha Actual ";
                 cin >> p1;
                 cout << "\nIntroduzca la fecha de nacimiento ";
                 cin >> p2;
                 CalculoEdad(p1,p2);
-
+                system("pause");
+                main();
                 break;
 
 
             case 4:
 
-                system("cls");
-                system("color 1f");
-                copyright();
+                allop(4);
                 cout << "\n\nIntroduzca el monto de la primera persona ";
                 cin >> p1;
                 cout << "\n\nIntroduzca el monto de la segunda persona ";
@@ -299,14 +339,13 @@ op = option(1);
                 cout << "\n\nIntroduzca el monto de la tercera persona ";
                 cin >> p3;
                 inversion(p1,p2,p3);
-
+                system("pause");
+                main();
                 break;
 
             case 5:
 
-                system("cls");
-                system("color f0");
-                copyright();
+                allop(5);
                 cout << "\n\n1-Convertir de mm a cm\n";
                 cout << "\n2-Convertir de cm a mm\n";
                 cout << "\n3-Convertir de m a km\n";
@@ -316,18 +355,19 @@ op = option(1);
                 cout << "\nIntroduzca la cantidad ";
                 cin >> conversion;
                 conversionCmtom_MtoKm(op,conversion);
-
+                system("pause");
+                main();
                 break;
 
 
             case 6:
 
-                system("cls");
-                system("color a0");
-                copyright();
-                cout << "\n\nIntroduzca la cantidad de minutos";
+                allop(6);
+                cout << "\n\nIntroduzca la cantidad de minutos ";
                 cin >> p1;
                 calcularTiempoLlamada(p1);
+                system("pause");
+                main();
                 break;
 
         } // End switch

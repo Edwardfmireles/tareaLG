@@ -3,3 +3,4 @@ $ cat .gitignore
 *.o
 *.c
 *.rar
+*.txt

@@ -12,6 +12,12 @@
 #include<iomanip>
 using namespace std;
 
+#include "areaTrianguloM.h"
+#include "holaNenaM.h"
+#include "promedioM.h"
+#include "calculadora.h"
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
 
@@ -202,12 +208,12 @@ system("color 0A");
 int opcion;
 
 if (msg==1) {
-cout <<" 1-Altura de un cono\n\n 2-Conversion de Celsius a Fahrenheit\n\n 3-Calcular la edad\n\n 4-Porcentaje de inversion de 3 personas\n\n 5-Coversión de mm, cm, m, km\n\n 6-Calcular tiempo de llamada telefonica: 3 min = RD$300, +1 min = RD$150";
+cout <<" 1-Altura de un cono\n\n 2-Conversion de Celsius a Fahrenheit\n\n 3-Calcular la edad\n\n 4-Porcentaje de inversion de 3 personas\n\n 5-Coversión de mm, cm, m, km\n\n 6-Calcular tiempo de llamada telefonica: 3 min = RD$300, +1 min = RD$150\n\n 7-Area del Triangulo\n\n 8-Promedio\n\n 9-Calculadora\n\n 10-Hola Nena!\n\n 11-Salir";
 cout << "\n\nEliga una opcion: ";
 }
 cin>>opcion;
 
-    if (opcion >= 1 && opcion <= 6) {
+    if (opcion >= 1 && opcion <= 11) {
         return opcion;
     } else if(opcion == 0) {
 
@@ -265,7 +271,26 @@ void allop(int code) {
         system("color a0");
         copyright();
         break;
-
+    case 7:
+        system("cls");
+        system("color 17");
+        copyright();
+        break;
+    case 8:
+        system("cls");
+        system("color 08");
+        copyright();
+        break;
+    case 9:
+        system("cls");
+        system("color 29");
+        copyright();
+        break;
+    case 10:
+        system("cls");
+        system("color 1a");
+        copyright();
+        break;
     }
 
 }
@@ -287,7 +312,7 @@ op = option(1);
 
 
 
-    if(op >=1 && op <=6) {
+    if(op >=1 && op <=11) {
 
        switch (op) {
 
@@ -369,6 +394,39 @@ op = option(1);
                 system("pause");
                 main();
                 break;
+
+            case 7:
+                allop(7);
+                areaTriangulo();
+                system("pause");
+                main();
+                break;
+
+            case 8:
+                allop(8);
+                promedio();
+                system("pause");
+                main();
+                break;
+
+            case 9:
+                allop(9);
+                Calculadora();
+                system("pause");
+                main();
+                break;
+
+            case 10:
+                allop(10);
+                holaNena();
+                system("pause");
+                main();
+                break;
+
+            case 11:
+                system("exit");
+                break;
+
 
         } // End switch
 
